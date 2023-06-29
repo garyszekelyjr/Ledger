@@ -1,14 +1,24 @@
 import csv
 import eel
-import models
 
-from sqlalchemy import create_engine, select
-from sqlalchemy.orm import Session
+from sqlalchemy import create_engine, select, String
+from sqlalchemy.orm import Session, declarative_base, Mapped, mapped_column
 
+# ENGINE FOR SQLALCHEMY
 engine = create_engine('sqlite+pysqlite:///db.sqlite')
-models.Base.metadata.create_all(engine)
+Base = declarative_base()
+# STORES LOGGED IN USER
+user = None
+
+Base.metadata.create_all(engine)
+# SERVES CLIENT APPLICATION TO CLIENT
 eel.init('www')
 
+class User(Base):
+    __tablename__ = 'user'
+
+    id: Mapped[int] = mapped_column(primary_key=True)
+    ledger: Mapped[str] = mapped_column(String, default='')
 
 @eel.expose
 def create(type, data):
@@ -62,25 +72,5 @@ def delete(type, id):
                 session.delete(session.scalars(select(models.CategoryTransformation).where(models.CategoryTransformation.id == id)).one())
         session.commit()
     return read(type)
-
-
-@eel.expose
-def upload(account_id, buffer):
-    with open('upload.csv', 'wb') as file:
-        file.write(bytearray(buffer))
-
-    with open('upload.csv', 'r') as file:
-        with Session(engine) as session:
-            account = session.scalars(select(models.Account).where(models.Account.id == account_id)).one()
-            # CHANGE TO AND
-            if len(account.institution.column_transformations) or len(account.institution.category_transformations):
-                for entry in csv.DictReader(file):
-                    transaction = models.Transaction(account_id=account.id)
-                    [setattr(transaction, column.clean, entry[column.raw]) for column in account.institution.column_transformations]
-                    # transaction.category_id = next(filter(lambda category: category.raw == entry['Category'], categories)).clean_id
-                    session.add(transaction)
-                session.commit()
-    return read('transaction')
-
 
 eel.start('')
