@@ -39,14 +39,14 @@ export default function App() {
                             <DialogTitle>Settings</DialogTitle>
                             <Divider />
                             <DialogContent>
-                                <TextField label='Link to Ledger (Google Sheet)' fullWidth />
+                                <TextField label='Ledger Link' fullWidth />
                             </DialogContent>
                         </Dialog>
                     </Toolbar>
                 </AppBar>
                 <BrowserRouter>
                     <Routes>
-                        <Route index element={<Home />} />
+                        <Route index element={<Home state={state} dispatch={dispatch} />} />
                     </Routes>
                 </BrowserRouter>
             </CssBaseline>
