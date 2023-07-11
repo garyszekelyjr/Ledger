@@ -18,7 +18,7 @@ export default function Settings({ state, dispatch }) {
                     <Stack spacing={2}>
                         <TextField label='Ledger Link' fullWidth />
                         <Divider />
-                        <FormControlLabel label='Dark Mode' control={<Switch checked={state['mode'] === 'dark'} onChange={(e) => {
+                        <FormControlLabel label='Dark Mode' labelPlacement='start' control={<Switch checked={state['mode'] === 'dark'} onChange={(e) => {
                             localStorage.setItem('mode', e.target.checked ? 'dark' : 'light');
                             dispatch({ mode: e.target.checked ? 'dark' : 'light' });
                         }} />} />
