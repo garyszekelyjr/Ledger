@@ -7,7 +7,7 @@ A lightweight desktop application to ease the burden of managing financial accou
 ## Tech Stack
 - React
 - Python
-- Eel
+- Flask
 - SQLite
 
 ## Instructions

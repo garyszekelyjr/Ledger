@@ -1,13 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { AppBar, Stack, Toolbar, Button, Typography, Dialog, DialogActions, DialogTitle, Divider, DialogContent, FormControl, InputLabel, Select, MenuItem, TextField } from '@mui/material';
+import { useReducer } from 'react';
+import { HashRouter, Routes, Route } from 'react-router-dom';
+import { AppBar, Stack, Toolbar, Button, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import HomeIcon from '@mui/icons-material/Home';
 import AnalyticsIcon from '@mui/icons-material/Analytics';
-import SettingsIcon from '@mui/icons-material/Settings';
-import { useReducer } from 'react';
 
-import Home from './Home';
+import Home from './pages/Home';
+import Analytics from './pages/Analytics';
+
+import Settings from './components/Settings';
 
 export default function App() {
     const [state, dispatch] = useReducer((state, updates) => {
@@ -15,7 +17,13 @@ export default function App() {
         Object.keys(updates).forEach((key) => { state[key] = updates[key]; });
         return state;
     }, {
-        dialog: null
+        mode: localStorage.getItem('mode') || 'dark',
+        dialog: null,
+        institutions: ['USAA', 'PNC'],
+        accounts: ['Account 1', 'Account 2'],
+        transactions: [
+            { id: 1, description: 'Hello', amount: 1, date: 'Hello' }
+        ]
     });
 
     return (
@@ -23,7 +31,7 @@ export default function App() {
             palette: {
                 primary: { main: '#3fc380' },
                 secondary: { main: '#fff' },
-                mode: localStorage.getItem('mode') || 'dark'
+                mode: state['mode']
             }
         })}>
             <CssBaseline>
@@ -32,23 +40,17 @@ export default function App() {
                         <Stack direction='row' spacing={2} flex={1}>
                             <Typography variant='h6' fontWeight='bold'>Ledger</Typography>
                             <Button href='/' color='inherit' variant='outlined' startIcon={<HomeIcon />}>Home</Button>
-                            <Button href='/analytics' color='inherit' variant='outlined' startIcon={<AnalyticsIcon />}>Analytics</Button>
+                            <Button href='/#/analytics' color='inherit' variant='outlined' startIcon={<AnalyticsIcon />}>Analytics</Button>
                         </Stack>
-                        <Button onClick={() => { dispatch({ dialog: 'settings' }); }} color='inherit' variant='outlined' startIcon={<SettingsIcon />}>Settings</Button>
-                        <Dialog open={state['dialog'] === 'settings'} onClose={() => { dispatch({ dialog: null }); }} fullWidth>
-                            <DialogTitle>Settings</DialogTitle>
-                            <Divider />
-                            <DialogContent>
-                                <TextField label='Ledger Link' fullWidth />
-                            </DialogContent>
-                        </Dialog>
+                        <Settings state={state} dispatch={dispatch} />
                     </Toolbar>
                 </AppBar>
-                <BrowserRouter>
+                <HashRouter>
                     <Routes>
                         <Route index element={<Home state={state} dispatch={dispatch} />} />
+                        <Route path='analytics' element={<Analytics state={state} dispatch={dispatch} />} />
                     </Routes>
-                </BrowserRouter>
+                </HashRouter>
             </CssBaseline>
         </ThemeProvider>
     );
