@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "eHRjT692G7zfR4do53oNLrTTIgoNNDflR1NmI8Gz/wYf0jkCXNaR9G4xNo89qJmuv5S+FMskR1koCwClVfZj4g==",
+  "dgSpecHash": "XeGeUe7zY2UWpCgV83fFrAw9DZCXE9H1YghJTIXZ+DX0uwVBu4plQfKik9gkAa9KAPoruOIyfWA/mRQLdHg2iA==",
   "success": true,
   "projectFilePath": "/Users/gary.szekely/Desktop/Repositories/Ledger/server/server.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/Users/gary.szekely/.nuget/packages/microsoft.aspnetcore.spaproxy/7.0.8/microsoft.aspnetcore.spaproxy.7.0.8.nupkg.sha512"
+  ],
   "logs": []
 }

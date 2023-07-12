@@ -1,12 +1,14 @@
+/Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/spa.proxy.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/appsettings.Development.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/appsettings.json
-/Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/server.staticwebassets.runtime.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/server
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/server.deps.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/server.runtimeconfig.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/server.dll
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/server.pdb
+/Users/gary.szekely/Desktop/Repositories/Ledger/server/bin/Debug/net7.0/Microsoft.AspNetCore.SpaProxy.dll
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/server.csproj.AssemblyReference.cache
+/Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/spa.proxy.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/server.GeneratedMSBuildEditorConfig.editorconfig
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/server.AssemblyInfoInputs.cache
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/server.AssemblyInfo.cs
@@ -21,9 +23,8 @@
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/staticwebassets.pack.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/staticwebassets.build.json
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/staticwebassets.development.json
-/Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/scopedcss/Pages/Shared/_Layout.cshtml.rz.scp.css
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/scopedcss/bundle/server.styles.css
-/Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/scopedcss/projectbundle/server.bundle.scp.css
+/Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/server.csproj.CopyComplete
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/server.dll
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/refint/server.dll
 /Users/gary.szekely/Desktop/Repositories/Ledger/server/obj/Debug/net7.0/server.pdb
