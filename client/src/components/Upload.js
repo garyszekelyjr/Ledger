@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Stack, Button, Dialog, DialogTitle, DialogContent, Divider, Select, FormControl, MenuItem, InputLabel, DialogActions, IconButton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
+import UploadIcon from '@mui/icons-material/Upload';
 
 export default function Upload({ state, dispatch }) {
     const [institution, setInstitution] = useState();
@@ -8,7 +9,7 @@ export default function Upload({ state, dispatch }) {
 
     return (
         <>
-            <Button onClick={() => { dispatch({ dialog: 'upload' }); }} variant='outlined'>Upload</Button>
+            <Button onClick={() => { dispatch({ dialog: 'upload' }); }} variant='outlined' color='inherit' startIcon={<UploadIcon />}>Upload</Button>
             <Dialog open={state['dialog'] === 'upload'} onClose={() => { dispatch({ dialog: null }); }} fullWidth>
                 <DialogTitle display='flex' justifyContent='space-between'>
                     Upload
